@@ -1,0 +1,114 @@
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$error: #ef4444;
+$gray-light: #f3f4f6;
+$gray-border: #d1d5db;
+$text-dark: #1f2937;
+
+* {  font-family: 'Inter', system-ui, sans-serif;
+}
+
+form {
+  max-width: 500px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem auto;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $text-dark;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid $gray-border;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: all 0.2s ease-in-out;
+      background-color: white;
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 4px rgba($primary, 0.1);
+      }
+
+      &::placeholder {
+        color: #9ca3af;
+      }
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    small {
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-top: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      
+      // Error message animation
+      animation: slideIn 0.2s ease-out;
+    }
+  }
+
+  button[type="submit"] {
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background-color: $primary;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover:not(:disabled) {
+      background-color: $primary-hover;
+      transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      background-color: $gray-border;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
+
+  button[type="button"] {
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background-color: $error;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

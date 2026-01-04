@@ -1,0 +1,74 @@
+$primary: #4f46e5;
+$bg-body: #f8fafc;
+$text-dark: #1e293b;
+$border: #e2e8f0;
+$danger: #ef4444;
+
+.table-container {
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin: 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    h1 { font-size: 1.5rem; color: $text-dark; font-weight: 700; }
+    
+    .add-btn {
+      background: $primary;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      &:hover { background: darken($primary, 10%); }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      text-align: left;
+      padding: 1rem;
+      background: $bg-body;
+      color: #64748b;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid $border;
+      color: $text-dark;
+      
+      // Price styling
+      &:nth-child(2) { font-weight: 600; color: #059669; }
+      
+      // Stock styling
+      &:nth-child(3) { color: #475569; }
+    }
+
+    .btn-action {
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid $border;
+      background: white;
+      cursor: pointer;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+
+      &.modifier { color: $primary; &:hover { background: rgba($primary, 0.05); } }
+      &.supprimer { color: $danger; &:hover { background: rgba($danger, 0.05); } }
+    }
+  }
+}

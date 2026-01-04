@@ -1,0 +1,40 @@
+<div class="category-container">
+  <header>
+    <h1>Categories</h1>
+    <button type="button" class="btn-add" routerLink="/categories/add">Add Category</button>
+  </header>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col" style="text-align: right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(category of categoriesArr(); track category.id) {
+          <tr>
+            <td class="category-name">{{ category.name }}</td>
+            <td class="category-desc">{{ category.description }}</td>
+            <td>
+              <div class="actions">
+                <button type="button" class="btn-action edit"  [routerLink]="['/categories/edit', category.id]" [attr.aria-label]="'Modifier ' + category.name">
+                    Modifier
+                </button>
+                <button type="button" class="btn-action delete" [attr.aria-label]="'Supprimer ' + category.name" (click)="deleteCategory(category.id)">
+                  Supprimer
+                </button>
+              </div>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="3" class="empty-state">No categories found.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

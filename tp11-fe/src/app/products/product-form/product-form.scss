@@ -1,0 +1,69 @@
+$primary: #4f46e5;
+$error: #ef4444;
+
+.product-form-card {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', system-ui, sans-serif;
+
+  h2 { margin-bottom: 2rem; font-size: 1.25rem; color: #111827; }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label { font-size: 0.9rem; font-weight: 500; color: #374151; }
+
+    input, select {
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba($primary, 0.1);
+      }
+    }
+    
+    // Specifically style the dropdown
+    select { background-color: #fff; cursor: pointer; }
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button {
+      flex: 1;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s;
+
+      &[type="submit"] {
+        background: $primary;
+        color: white;
+        &:disabled { background: #9ca3af; cursor: not-allowed; }
+      }
+
+      &[type="button"] {
+        background: #f3f4f6;
+        color: #4b5563;
+      }
+
+      &:hover:not(:disabled) { opacity: 0.9; }
+    }
+  }
+}
